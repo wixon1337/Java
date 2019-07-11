@@ -21,6 +21,8 @@ public class Main {
         feladat18("1","2","2","2","3","4");
         feladat19("6", "2");
         feladat20("kecske", "malac", "veréb", "szia");*/
+        feladat21("4","x","2");
+        feladat22("3","1","+","2","x","2","-","1");
 
     }
 
@@ -345,5 +347,43 @@ public class Main {
             }
             System.out.println(word);
         }
+    }
+
+    public static void feladat21(String... arr) {
+        if (arr.length != 3) {
+            System.out.println("3 paramétert adj meg. (elsőszám, operátor, másodikszám");
+        } else {
+            switch(arr[1]) {
+                case "+": System.out.println(Integer.parseInt(arr[0]) + Integer.parseInt(arr[2]));
+                break;
+                case "-": System.out.println(Integer.parseInt(arr[0]) - Integer.parseInt(arr[2]));
+                break;
+                case "x": System.out.println(Integer.parseInt(arr[0]) * Integer.parseInt(arr[2]));
+                break;
+                case "/": System.out.println(Integer.parseInt(arr[0]) / Integer.parseInt(arr[2]));
+                break;
+            }
+        }
+    }
+
+    public static void feladat22(String... arr) {
+        double reszeredm = Double.parseDouble(arr[1]);
+        for (int i = 2; i <= Integer.parseInt(arr[0])*2; i+=2) {
+            switch(arr[i]) {
+                case "+": reszeredm += Double.parseDouble(arr[i+1]);
+                    break;
+                case "-": reszeredm -= Double.parseDouble(arr[i+1]);
+                    break;
+                case "x": reszeredm *= Double.parseDouble(arr[i+1]);
+                    break;
+                case "/": reszeredm /= Double.parseDouble(arr[i+1]);
+                    break;
+            }
+        }
+        System.out.println(reszeredm);
+    }
+
+    public static void feladat23(String... arr) {
+        
     }
 }
