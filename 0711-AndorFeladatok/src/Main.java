@@ -384,6 +384,6 @@ public class Main {
     }
 
     public static void feladat23(String... arr) {
-        
+
     }
 }
