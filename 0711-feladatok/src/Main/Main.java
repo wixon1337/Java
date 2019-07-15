@@ -1,5 +1,7 @@
 package Main;
 
+import csomag2.test;
+
 public class Main {
     public static void main(String... args) {
         /*for (int i = 0; i < args.length; i++) {
@@ -8,6 +10,8 @@ public class Main {
         /*printArray(args);
         printThreeDotArray(args);
         printThreeDotArray("1", "2", "3");*/
+
+        test t = new test(); // import package teszt
 
         parancssor(args);
         feladat2(args);
