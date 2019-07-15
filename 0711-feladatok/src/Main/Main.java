@@ -21,15 +21,24 @@ public class Main {
         }
         System.out.println();
 
-        Animal cica = new Animal("Cirmi", 10, true); // Példányosítás
-        System.out.println(cica.name);
-        System.out.println(cica.age);
-        System.out.println(cica.isMammal + "\n");
+        // Animal cica = new Animal("Cirmi", 10, true); // Példányosítás
+        // System.out.println(cica.getName());
+        // System.out.println(cica.getAge());
+        // System.out.println(cica.isMammal() + "\n");
+        // cica.setName("NemCirmi");
+        // System.out.println(cica);
 
+        // Animal cica2 = new Animal("Cirmi", 10, true);
+
+/*        if (cica.equals(cica2)) {
+            System.out.println("Ugyanaz a cica");
+        }*/
+
+/*        System.out.println();
         Animal luna = new Animal("Luna", 1, true);
-        System.out.println("Legjobb kutya a világon: " + luna.name);
-        luna.sayHello();
-        System.out.println(luna);
+        System.out.println("Legjobb kutya a világon: " + luna.getName());
+        System.out.println(luna.sayHello());
+        System.out.println(luna);*/
     }
 
     public static void printArray(String[] arr) {
