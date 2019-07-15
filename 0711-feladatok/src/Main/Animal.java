@@ -1,7 +1,9 @@
+package Main;
+
 public class Animal { // Osztály
     public String name;
     public int age;
-    public boolean isMammal;
+    protected boolean isMammal;
 
     public Animal(String name, int age, boolean isMammal) {  // Konstruktor
         this.name = name;
