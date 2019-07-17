@@ -4,8 +4,8 @@ public class Butorlap {
     private int length;
     private int width;
     private boolean isTartolap;
-    final int tartolapPrice = 5000;
-    final int hatlapPrice = 500;
+    private final int tartolapPrice = 5000;
+    private final int hatlapPrice = 500;
 
     public Butorlap(int length, int width, boolean isTartolap) {
         this.length = length;
@@ -13,11 +13,11 @@ public class Butorlap {
         this.isTartolap = isTartolap;
     }
 
-    public int arSzamol() {
+    public double arSzamol() {
         if(this.isTartolap) {
-            return (this.length * this.width) / 10000 * this.tartolapPrice;
+            return (double)(this.length * this.width) / 10000 * this.tartolapPrice;
         } else {
-            return (this.length * this.width) / 10000 * this.hatlapPrice ;
+            return (double)(this.length * this.width) / 10000 * this.hatlapPrice ;
         }
      }
 
