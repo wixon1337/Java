@@ -5,8 +5,8 @@ public class Butor {
     private Butorlap[] butorlapok;
 
     public Butor() {
-        this.lap = 0;
-        this.butorlapok = new Butorlap[100];
+        lap = 0;
+        butorlapok = new Butorlap[100];
     }
 
     public Butorlap[] getButorlapok() {
@@ -14,13 +14,7 @@ public class Butor {
     }
 
     public void lapHozzaad (Butorlap butorlap) {
-        for (int i = 0; i < 100; i++) {
-            if (this.butorlapok[i] == null) {
-                this.butorlapok[i] = butorlap;
-                this.lap++;
-                break;
-            }
-        }
+            if (lap < 100)  butorlapok[lap++] = butorlap;
     }
 
     public double arSzamol () {
@@ -31,6 +25,7 @@ public class Butor {
         return sum;
     }
 
+    @Override
     public String toString() {
         return "Butor - lapok: " + this.lap + ", ár: " + this.arSzamol() + " FT";
     }

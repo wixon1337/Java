@@ -14,11 +14,7 @@ public class Butorlap {
     }
 
     public double arSzamol() {
-        if(this.isTartolap) {
-            return (double)(this.length * this.width) / 10000 * this.tartolapPrice;
-        } else {
-            return (double)(this.length * this.width) / 10000 * this.hatlapPrice ;
-        }
+        return (double)(length * width) / 10000 * (isTartolap? tartolapPrice : hatlapPrice);
      }
 
 
