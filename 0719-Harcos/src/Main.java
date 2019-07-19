@@ -38,7 +38,6 @@ public class Main {
 
 
 
-
 /*        Harcos[] klub = new Harcos[args.length/3];  //OLD: from args
         int klubIndex = 0;
         for (int i = 0; i < args.length; i++) {
@@ -62,9 +61,9 @@ public class Main {
     }
 
     public static void match(Harcos h1, Harcos h2) {
-        System.out.printf(h1.toString());
+        System.out.println(h1);
         System.out.println("\nHarcol:");
-        System.out.println(h2.toString());
+        System.out.println(h2);
         System.out.println();
         for (int i = 0; i < 3; i++) {
             if (h1.getHp() <= 0 && h2.getHp() > 0) {
@@ -73,6 +72,10 @@ public class Main {
                 break;
             } else if (h2.getHp() <= 0 && h1.getHp() > 0) {
                 System.out.println("Won: " + h1.toString());
+                System.out.println("-----------------------------------");
+                break;
+            } else if (h1.getHp() <= 0 && h2.getHp() <= 0){
+                System.out.println("Draw.");
                 System.out.println("-----------------------------------");
                 break;
             } else {

@@ -31,7 +31,7 @@ public class Harcos {
     }
 
     public void hit(Harcos masikHarcos) {
-        System.out.println(this.toString() + " megütötte:\n=> " + masikHarcos.toString());
+        System.out.println(this + " megütötte:\n=> " + masikHarcos);
         masikHarcos.setHp(masikHarcos.getHp()-this.damage);
         System.out.println("-" + this.damage);
     }
