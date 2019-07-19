@@ -1,9 +1,45 @@
 import harcosokklubja.*;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
 public class Main {
 
     public static void main(String[] args) {
-        Harcos[] klub = new Harcos[args.length/3];
+        ArrayList<Harcos> klub = new ArrayList<Harcos>();
+
+        try (FileReader reader = new FileReader("harcosok.txt");
+             BufferedReader br = new BufferedReader(reader)) {
+
+            // read line by line
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] array = line.split(";");
+                if (array[0].equals("Harcos")) {
+                    klub.add(new Harcos(Integer.parseInt(array[1]), Integer.parseInt(array[2])));
+                } else if (array[0].equals("Nagydarab")) {
+                    klub.add(new Nagydarab(Integer.parseInt(array[1]),Integer.parseInt(array[2]),Integer.parseInt(array[3])));
+                }
+            }
+
+        } catch (IOException e) {
+            System.err.format("IOException: %s%n", e);
+        }
+
+        for (int i = 0; i < klub.size(); i++) {
+            for (int j = 0; j < klub.size(); j++) {
+                if (i != j && klub.get(i).getHp() > 0 && klub.get(j).getHp() > 0) {
+                    match(klub.get(i),klub.get(j));
+                }
+            }
+        }
+
+
+
+
+/*        Harcos[] klub = new Harcos[args.length/3];  //OLD: from args
         int klubIndex = 0;
         for (int i = 0; i < args.length; i++) {
             if (args[i].equals("Harcos")) {
@@ -22,6 +58,7 @@ public class Main {
                 }
             }
         }
+    }*/
     }
 
     public static void match(Harcos h1, Harcos h2) {

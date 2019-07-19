@@ -1,0 +1,4 @@
+Harcos;5;10
+Nagydarab;6;10;2
+Harcos;4;12
+Nagydarab;4;12;3
