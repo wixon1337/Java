@@ -19,6 +19,6 @@ public class Regeny extends Konyv implements Rendelheto {
 
     @Override
     public void rendel(int darab) {
-        System.out.println("Rendelni kell " + darab + "regényt az alabbibol: " + this.toString());
+        System.out.println("Rendelni kell " + darab + " regényt az alabbibol: " + this.toString());
     }
 }
