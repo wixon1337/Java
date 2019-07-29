@@ -15,7 +15,20 @@ public class Main {
         StringBuilder sb = new StringBuilder("asda");
         sb.append("ads");
         sb.toString();
-        appendTest();
+        // appendTest();
+        System.out.println("----------------------------------");
+        arrayTest(new int[]{1, 2, 3, 4});
+        try {
+            throwException(0); // A függvényhívás helyén kezeljük le a kivételt
+        } catch (ArithmeticException e) {
+            System.out.println("Well, ne ossz 0-val!");
+        }
+
+        try {
+            customCicaString("kiscica");
+        } catch (KiscicaException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -94,5 +107,34 @@ public class Main {
         after = System.currentTimeMillis();
         System.out.println("Builder diff: " + (after - before));
 
+    }
+
+    public static void arrayTest(int[] arr) {
+        try { // Try blokkba kerül az a kód, amitől kivételt várhatunk
+            for (int i = 0; i <= arr.length; i++) {
+                System.out.println(arr[i]);
+            }
+            System.out.println("Ez már nem fut le hiba/kivétel esetén");
+        } catch (ArrayIndexOutOfBoundsException e) { // Megadjuk, hogy milyen kivételt várunk
+            System.out.println("Ez így nem volt jó ötlet"); // Ha kivétel következett be, akkor ez a kódblokk fut le
+        } catch (Exception e) { // Az exception mindent elkap, több catch blokk is lehetséges
+            System.out.println("Valami más hiba");
+        } finally { // Mindenképp lefut, nem kötelező
+            System.out.println("Vége");
+        }
+        System.out.println("Függvény vége");
+    }
+
+    public static void throwException(int div) throws ArithmeticException { // Nem a függvényben kezeljük le a kivételt, hanem visszadjuk a hívó félnek
+        int b = 10 / div;
+        System.out.println(b);
+    }
+
+    public static void customCicaString(String s) throws KiscicaException {
+        if (s.contains("cica")) {
+            throw new KiscicaException("Találtam kiscicát");
+        } else {
+            System.out.println(s);
+        }
     }
 }
