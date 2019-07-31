@@ -1,4 +1,2 @@
-package PACKAGE_NAME;
-
-public class NotFoundException {
+public class NotFoundException extends HibasKolcsonzesException {
 }
