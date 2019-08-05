@@ -1,4 +1,5 @@
 package hu.flowacademy;
 
-public class Car {
+public class Car extends Vehicle {
+
 }
