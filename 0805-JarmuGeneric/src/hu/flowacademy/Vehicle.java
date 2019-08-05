@@ -1,4 +1,6 @@
 package hu.flowacademy;
 
-public class Vehicle {
+public abstract class Vehicle {
+
+    abstract String getType();
 }
