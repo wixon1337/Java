@@ -3,7 +3,7 @@ package hu.flowacademy;
 
 import java.util.HashMap;
 
-public class Parking<T> {
+public class Parking<T extends Vehicle> {
     private T[] array;
     private int pointer;
 
@@ -20,10 +20,12 @@ public class Parking<T> {
     public void getAll() {
         HashMap<String, Integer> storage = new HashMap<>();
         for (int i = 0; i < pointer; i++) {
-
-            storage.put(array[i].getClass().getName(), 1);
-            System.out.println(storage.get(array[i].getClass().getName()) + 1);
-
+            if (storage.containsKey(array[i].getClass().getName())) {
+                storage.put(array[i].getClass().getName(), storage.get(array[i].getClass().getName()) + 1);
+            } else {
+                storage.put(array[i].getClass().getName(), 1);
+            }
+            //System.out.println(storage.get(array[i].getClass().getName()) + 1);
         }
         System.out.println(storage);
     }
