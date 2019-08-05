@@ -1,3 +1,5 @@
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -9,13 +11,28 @@ public class Main {
     static ArrayList<Konyv> konyvList = new ArrayList<>();
 
     public static void main(String[] args) {
-        rendelesFelvesz("./rendeles.txt");
+        rendelesFelvesz("rendeles.txt");
         System.out.println(konyvList);
         rendel();
     }
 
     public static void rendelesFelvesz(String path) {
-        String[] array;
+
+        try {
+            Files.lines(Paths.get(path)).map(s -> {
+                String[] array = s.split(";");
+                for (int i = 0; i < array.length; i++) {
+                    System.out.println(array[i]);
+                    if (array[i].equals("cd")) {
+                        cdList.add(new CD(array[i+1], array[i+2]));
+                    } else if (array[i].equals("peldatar")) {
+                        konyvList.add(new Peldatar(array[i+1], array[i+2], Integer.parseInt(array[i+3])));
+                    } else if (array[i].equals("regeny")) {
+                        konyvList.add(new Regeny(array[i+1], array[i+2], array[i+3]));
+                    }
+                }
+            });
+/*        String[] array;
         try (FileReader reader = new FileReader(path);
              BufferedReader br = new BufferedReader(reader)) {
 
@@ -33,7 +50,7 @@ public class Main {
                         konyvList.add(new Regeny(array[i+1], array[i+2], array[i+3]));
                     }
                 }
-            }
+            }*/
         } catch (FileNotFoundException e) {
             System.err.format("FileNotFoundException: %s%n", e);
         } catch (IOException e) {

@@ -1,27 +1,46 @@
-public class Szam implements Parosos{
-    protected String szam;
+public abstract class Szam implements Pozitiv, Negativ, Paross, Paratlan {
 
-    public Szam(String szam) {
-        this.szam = szam;
-    }
-    public boolean isParos() {
-        return Double.parseDouble(this.szam) % 2 == 0;
-    }
+//  private final Long value;
+  private Double value;
 
-    public boolean isParatlan() {
-        return Double.parseDouble(this.szam) % 2 != 0;
-    }
+  private Double im;
 
-    public boolean isPozitiv() {
-        return Double.parseDouble(this.szam) > 0;
-    }
+  Szam(String value) {
+    try {
+      this.value = Double.parseDouble(value);
+    } catch (NumberFormatException e) {
+      if (value.contains("i")) {
 
-    public boolean isNegativ() {
-        return Double.parseDouble(this.szam) < 0;
+      }
     }
+  }
 
-    @Override
-    public String toString() {
-        return szam;
-    }
+  public Double getValue() {
+    return value;
+  }
+
+  @Override
+  public boolean isPozitiv() {
+    return this.value >= 0;
+  }
+
+  @Override
+  public boolean isNegativ() {
+    return this.value < 0;
+  }
+
+  @Override
+  public boolean isParatlan() {
+    return this.value % 2 != 0;
+  }
+
+  @Override
+  public boolean isParos() {
+    return this.value % 2 == 0;
+  }
+
+  @Override
+  public String toString() {
+    return Double.toString(this.value);
+  }
 }
