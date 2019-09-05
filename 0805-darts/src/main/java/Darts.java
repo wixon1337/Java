@@ -36,8 +36,8 @@ public class Darts {
         if (m.getMult() == 2 && isFirst) {
             scoreActual = scoreActual - (num * m.mult);
             isFirst = false;
-        } else if(scoreActual - num == 0 && m.getMult() == 2){
-            scoreActual = scoreActual - num;
+        } else if(scoreActual - num * m.getMult() == 0 && m.getMult() == 2){
+            scoreActual = scoreActual - num * m.mult;
         } else if (!isFirst) {
             scoreActual = scoreActual - (num * m.mult);
         }

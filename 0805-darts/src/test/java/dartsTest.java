@@ -15,6 +15,7 @@ public class dartsTest {
     @Test
     public void aGameShouldStartAt301(){
         Assertions.assertEquals(301, d.getScore(), "The game should start at 301 points.");
+        Assertions.assertNotEquals(213, d.getScore());
         Assertions.assertFalse(d.isFinished());
     }
 
@@ -23,12 +24,14 @@ public class dartsTest {
         d.dart(20, Darts.Multiplier.DOUBLE);
         d.dart(20);
         Assertions.assertEquals(241, d.getScore());
+        Assertions.assertNotEquals(261, d.getScore());
     }
 
     @Test
     public void shouldCorrectlyCalculateDoubleThrow()  {
         d.dart(20, Darts.Multiplier.DOUBLE);
         Assertions.assertEquals(261, d.getScore());
+        Assertions.assertNotEquals(241, d.getScore());
     }
 
     @Test
@@ -36,12 +39,15 @@ public class dartsTest {
         d.dart(10, Darts.Multiplier.DOUBLE);
         d.dart(20, Darts.Multiplier.TRIPLE);
         Assertions.assertEquals(221, d.getScore());
+        Assertions.assertNotEquals(200, d.getScore());
     }
 
     @Test
     public void shouldCountFirstTurn(){
         Assertions.assertEquals(3, d.getDartsLeft());
+        Assertions.assertNotEquals(4, d.getDartsLeft());
         Assertions.assertEquals(1, d.getRound());
+        Assertions.assertNotEquals(2, d.getRound());
     }
 
     @Test
@@ -50,12 +56,14 @@ public class dartsTest {
         d.dart(20, Darts.Multiplier.TRIPLE);
         d.dart(20);
         Assertions.assertEquals(2, d.getRound());
+        Assertions.assertNotEquals(3, d.getRound());
     }
 
     @Test
     public void shouldStartWithDouble() {
         d.dart(20, Darts.Multiplier.DOUBLE);
         Assertions.assertEquals(261, d.getScore());
+        Assertions.assertNotEquals(241, d.getScore());
     }
 
 
@@ -64,14 +72,11 @@ public class dartsTest {
         d.dart(10, Darts.Multiplier.DOUBLE);
         d.dart(20, Darts.Multiplier.TRIPLE);
         d.dart(20, Darts.Multiplier.TRIPLE);
+        Assertions.assertFalse(d.isFinished());
         d.dart(20, Darts.Multiplier.TRIPLE);
         d.dart(20, Darts.Multiplier.TRIPLE);
         d.dart(1);
         d.dart(20, Darts.Multiplier.DOUBLE);
-        Assertions.assertTrue(d.isFinished());
+        Assertions.assertTrue(d.isFinished());;
     }
-
-/*    shouldCalculateTheTurn();
-    shouldStartWithDouble();
-    shouldFinishWithDouble();*/
 }
